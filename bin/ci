@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "[ bin/ci ] Set RAILS_ENV to test"
+export RAILS_ENV=test
+
+echo "[ bin/ci ] Preparing database"
+bin/rails db:reset || bin/rails db:migrate
+
+echo "[ bin/ci ] Linting source"
+bundle exec rubocop -A
+
+echo "[ bin/ci ] Building JavaScript"
+yarn build
+
+echo "[ bin/ci ] Building CSS"
+yarn build:css
+
+echo "[ bin/ci ] Running unit tests"
+bin/rails test
+
+echo "[ bin/ci ] Analysing code for security vulnerabilities."
+echo "[ bin/ci ] Output will be in tmp/brakeman.html, which"
+echo "[ bin/ci ] can be opened in your browser."
+bundle exec brakeman -q -o tmp/brakeman.html
+
+echo "[ bin/ci ] Analysing Ruby gems for"
+echo "[ bin/ci ] security vulnerabilities"
+bundle exec bundle audit check --update
+
+echo "[ bin/ci ] Unset RAILS_ENV"
+unset RAILS_ENV
+
+echo "[ bin/ci ] Done"

@@ -1,0 +1,21 @@
+require:
+  - standard
+  - rubocop-rails
+  - rubocop-minitest
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*
+    - bin/**/*
+    - tmp/caches/**/*
+
+Rails:
+  Enabled: true # enable rubocop-rails cops
+Minitest:
+  Enabled: true # enable rubocop-rspec cops
