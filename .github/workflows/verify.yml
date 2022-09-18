@@ -11,6 +11,7 @@ env:
   NODE_VERSION: "16.17.0"
   RAILS_ENV: "test"
   CI: true
+  BUNDLE_WITHOUT: "development"
 jobs:
   linters:
     concurrency:
@@ -84,11 +85,11 @@ jobs:
 
       - name: Unit tests
         run: |
-          bundle exec test
+          bundle exec rails test
 
       - name: System tests
         run: |
-          bundle exec test:system
+          bundle exec rails test:system
 
       - name: Simplecov Report
         uses: aki77/simplecov-report-action@v1
