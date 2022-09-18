@@ -80,7 +80,6 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[mri mingw x64_mingw]
 
-  gem "shoulda-matchers"
   gem "factory_bot_rails"
   gem "faker"
 
@@ -95,6 +94,13 @@ group :development do
   gem "binding_of_caller"
   gem "web-console"
 
+  gem "guard"
+  gem "guard-minitest"
+
+  gem "ruby-debug-ide", require: false
+  gem "debase", "0.2.5.beta2", require: false
+  gem "solargraph", require: false
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -105,4 +111,7 @@ end
 group :test do
   gem "database_cleaner-active_record"
   gem "rails-controller-testing"
+
+  gem "simplecov"
+  gem "simplecov-json"
 end

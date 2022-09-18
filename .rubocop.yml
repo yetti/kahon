@@ -12,10 +12,19 @@ AllCops:
     - node_modules/**/*
     - public/**/*
     - vendor/**/*
+    - db/**/*
     - bin/**/*
-    - tmp/caches/**/*
+    - tmp/**/*
 
 Rails:
-  Enabled: true # enable rubocop-rails cops
+  Enabled: true
+Rails/FilePath:
+  Enabled: false
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - test
+    - staging
+    - production
 Minitest:
-  Enabled: true # enable rubocop-rspec cops
+  Enabled: true

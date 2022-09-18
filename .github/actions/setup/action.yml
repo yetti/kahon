@@ -1,0 +1,27 @@
+name: Setup environment
+description: Setup environment for other jobs
+
+inputs:
+  ruby-version:
+    description: "Ruby version to use"
+    required: false
+    default: "3.1.2"
+  node-version:
+    description: "NodeJS version to use"
+    required: false
+    default: "16.17.0"
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Ruby, JRuby and TruffleRuby
+      uses: ruby/setup-ruby@v1.117.0
+      with:
+        ruby-version: ${{ inputs.ruby-version }}
+        bundler-cache: true
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v3.4.1
+      with:
+        node-version: ${{ inputs.node-version }}
+        cache: 'yarn'

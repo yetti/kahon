@@ -1,0 +1,99 @@
+# This workflow runs the unit and system tests, as well as static code analysis
+# and dependency vulnerability checks.
+name: "Tests and code quality"
+on:
+  pull_request:
+    branches:
+      - "main"
+      - "release/**"
+env:
+  RUBY_VERSION: "3.1.2"
+  NODE_VERSION: "16.17.0"
+  RAILS_ENV: "test"
+  CI: true
+  BUNDLE_WITHOUT: "development"
+jobs:
+  linters:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup environment
+        uses: ./.github/actions/setup
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: RuboCop
+        run: bundle exec rubocop --parallel
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Brakeman code scanning with reviewdog
+        uses: reviewdog/action-brakeman@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Bundler Audit Action
+        uses: andrewmcodes/bundler-audit-action@v0.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  tests:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    name: Tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14-alpine
+        ports:
+          - "5432:5432"
+        env:
+          POSTGRES_DB: caja_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/caja_test?pool=5"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup environment
+        uses: ./.github/actions/setup
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install NodeJS dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Setup database schema
+        run: bin/rails db:schema:load
+
+      - name: Unit tests
+        run: |
+          bundle exec rails test
+
+      - name: System tests
+        run: |
+          bundle exec rails test:system
+
+      - name: Simplecov Report
+        uses: aki77/simplecov-report-action@v1
+        with:
+          failedThreshold: 80
+          token: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ github.actor != 'dependabot[bot]' }}
