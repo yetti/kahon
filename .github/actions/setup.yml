@@ -24,3 +24,4 @@ runs:
       uses: actions/setup-node@v3.4.1
       with:
         node-version: ${{ inputs.node-version }}
+        cache: 'yarn'
