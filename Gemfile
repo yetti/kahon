@@ -83,14 +83,12 @@ group :development, :test do
   gem "debase", "0.2.5.beta2", require: false
   gem "solargraph", require: false
 
-  gem "rspec-rails", "~> 6.0.0.rc1"
-  gem "shoulda-matchers"
   gem "factory_bot_rails"
   gem "faker"
 
   gem "standard", require: false
   gem "rubocop-rails", require: false
-  gem "rubocop-rspec", require: false
+  gem "rubocop-minitest", require: false
 end
 
 group :development do
@@ -98,6 +96,9 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "web-console"
+
+  gem "guard"
+  gem "guard-minitest"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

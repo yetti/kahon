@@ -36,12 +36,15 @@
       "type": "Ruby",
       "request": "launch",
       "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/bin/rspec",
+      "program": "${workspaceFolder}/bin/rails",
       "useBundler": true,
       "pathToBundler": "${workspaceFolder}/bin/bundle",
       "showDebuggerOutput": true,
       "pathToRDebugIDE": "/${workspaceFolder}/bin/rdebug-ide",
-      "args": []
+      "args": [
+        "test",
+        "${file}:{$lineNumber}"
+      ]
     }
   ]
 }
