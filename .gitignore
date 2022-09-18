@@ -52,3 +52,6 @@ vendor/bundle
 
 /config/*.local.yml
 /config/credentials/local.*
+
+# Ignore SimpleCov coverage reports
+/coverage

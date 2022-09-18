@@ -1,0 +1,88 @@
+# This workflow runs the unit and system tests, as well as static code analysis
+# and dependency vulnerability checks.
+name: "Tests and code quality"
+on:
+  pull_request:
+    branches:
+      - "main"
+      - "release/**"
+env:
+  RUBY_VERSION: "3.1.2"
+  RAILS_ENV: "test"
+  CI: true
+jobs:
+  linters:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    name: Linters
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@72d59482210349c1114eca714b6c5df19fbbec34 # v1.92
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+
+      - name: RuboCop
+        run: bundle exec rubocop --parallel
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Brakeman code scanning with reviewdog
+        uses: reviewdog/action-brakeman@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Bundler Audit Action
+        uses: andrewmcodes/bundler-audit-action@v0.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  tests:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    name: Tests
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          # Provide the password for postgres
+          POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: "DATABASE_URL=postgres://localhost:5432/caja_test?pool=5"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@72d59482210349c1114eca714b6c5df19fbbec34 # v1.92
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+
+      - name: Unit tests
+        run: |
+          bundle exec test
+
+      - name: System tests
+        run: |
+          bundle exec test:system
+
+      - name: Simplecov Report
+        uses: aki77/simplecov-report-action@v1
+        with:
+          failedThreshold: 80
+          token: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ github.actor != 'dependabot[bot]' }}

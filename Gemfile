@@ -110,4 +110,7 @@ end
 group :test do
   gem "database_cleaner-active_record"
   gem "rails-controller-testing"
+
+  gem "simplecov"
+  gem "simplecov-json"
 end
