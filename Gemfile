@@ -29,7 +29,7 @@ gem "anyway_config", "~> 2.3"
 gem "active_link_to", "~> 1.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.3", ">= 7.0.3.1"
+gem "rails", "~> 7.0.4"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -97,6 +97,7 @@ group :development do
   gem "guard"
   gem "guard-minitest"
 
+  # debase is flaky as hell...avoid using VSCode debugger if it fails to install
   gem "ruby-debug-ide", require: false
   gem "debase", "0.2.5.beta2", require: false
   gem "solargraph", require: false
