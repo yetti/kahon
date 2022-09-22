@@ -97,6 +97,7 @@ group :development do
   gem "guard"
   gem "guard-minitest"
 
+  # debase is flaky as hell...avoid using VSCode debugger if it fails to install
   gem "ruby-debug-ide", require: false
   gem "debase", "0.2.5.beta2", require: false
   gem "solargraph", require: false
