@@ -1,18 +1,18 @@
 databases:
-  - name: caja
+  - name: istante-db
     region: singapore
-    databaseName: caja
-    user: caja
+    databaseName: istante
+    user: istante
 
 services:
   - type: redis
-    name: cache
+    name: istante-cache
     region: singapore
     ipAllowList: [] # only allow internal connections
     plan: free # optional (defaults to starter)
     maxmemoryPolicy: allkeys-lfu # optional (defalts to allkeys-lru).  Rails recommends allkeys-lfu as a default.
   - type: web
-    name: caja
+    name: istante-web
     region: singapore
     env: ruby
     buildCommand: "./bin/render-build.sh"
@@ -20,12 +20,12 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: caja
+          name: istante-db
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
       - key: REDIS_URL
         fromService:
           type: redis
-          name: cache
+          name: istante-cache
           property: connectionString
