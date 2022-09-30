@@ -2,24 +2,33 @@
 
 A board game collection manager.
 
-## Setup
+## Development
+
+### Pre-requisites
+
+* PostgresSQL 14
+* Redis 6.0
+* Ruby 3.1.2
+
+### Setup
 
 1. Pull down the app from version control
 2. Make sure you have Postgres running
-3. bin/setup
+3. Make sure you have Redis running
+4. bin/setup
+
+## Running The App
+
+1. bin/dev
 
 <details>
-<summary>Dockerised setup</summary>
+<summary>Dockerised development</summary>
 
 1. Install the [dip](https://github.com/bibendi/dip) gem
 2. `dip provision`
 3. `dip rails dev` to start the app
 
 </details>
-
-## Running The App
-
-1. bin/dev
 
 ## Tests and CI
 
