@@ -1,16 +1,19 @@
 databases:
   - name: caja
+    region: singapore
     databaseName: caja
     user: caja
 
 services:
   - type: redis
     name: cache
+    region: singapore
     ipAllowList: [] # only allow internal connections
     plan: free # optional (defaults to starter)
     maxmemoryPolicy: allkeys-lfu # optional (defalts to allkeys-lru).  Rails recommends allkeys-lfu as a default.
   - type: web
     name: caja
+    region: singapore
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
