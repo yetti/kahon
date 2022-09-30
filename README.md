@@ -1,6 +1,8 @@
-# caja
+# istante
 
 A board game collection manager.
+
+"istante" means "shelf" in Tagalog.
 
 ## Development
 
