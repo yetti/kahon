@@ -55,3 +55,6 @@ vendor/bundle
 
 # Ignore SimpleCov coverage reports
 /coverage
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
