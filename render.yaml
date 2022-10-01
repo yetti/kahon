@@ -9,10 +9,9 @@ services:
     name: istante-cache
     region: singapore
     ipAllowList: [] # only allow internal connections
-    plan: free # optional (defaults to starter)
     maxmemoryPolicy: allkeys-lfu # optional (defalts to allkeys-lru).  Rails recommends allkeys-lfu as a default.
   - type: web
-    name: istante-web
+    name: istante
     region: singapore
     env: ruby
     buildCommand: "./bin/render-build.sh"
