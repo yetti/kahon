@@ -10,16 +10,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <header class="container mt-4 mb-4">
-      <a href="https://render.com">
-        <%= image_tag 'render-banner.png', class: 'mw-100' %>
-      </a>
-    </header>
     <%= yield %>
   </body>
 </html>
