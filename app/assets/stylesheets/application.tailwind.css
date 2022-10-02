@@ -1,10 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600;700&family=Roboto+Mono:wght@200;300&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Open+Sans:wght@400;600;700&family=Roboto+Mono:wght@200;300&display=swap');*/
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+    @font-face {
+        font-family: "Lora";
+        src: url("Lora-VariableFont_wght.ttf") format("truetype");
+    }
+    @font-face {
+        font-family: "Lora";
+        src: url("Lora-Italic-VariableFont_wght.ttf") format("truetype");
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: "Montserrat";
+        src: url("Montserrat-VariableFont_wght.ttf") format("truetype");
+    }
+    @font-face {
+        font-family: "Montserrat";
+        src: url("Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: "Open Sans";
+        src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+    }
+    @font-face {
+        font-family: "Open Sans";
+        src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+        font-style: italic;
+    }
+
+    @font-face {
+        font-family: "Roboto Mono";
+        src: url("RobotoMono-VariableFont_wght.ttf") format("truetype");
+    }
+    @font-face {
+        font-family: "Roboto Mono";
+        src: url("RobotoMono-Italic-VariableFont_wght.ttf") format("truetype");
+        font-style: italic;
+    }
+
     html {
         @apply font-normal;
     }

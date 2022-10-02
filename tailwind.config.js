@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         ...defaultTheme.fontFamily,
         heading: ['Lora', ...defaultTheme.fontFamily.serif],
+        subheading: ['Montserrat', ...defaultTheme.fontFamily.serif],
         code: ['Roboto Mono', ...defaultTheme.fontFamily.mono],
         normal: ['Open Sans', ...defaultTheme.fontFamily.sans],
         sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
