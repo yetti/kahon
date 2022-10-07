@@ -1,5 +1,3 @@
-previewsEnabled: true
-previewsExpireAfterDays: 1
 databases:
   - name: istante-db
     plan: starter
