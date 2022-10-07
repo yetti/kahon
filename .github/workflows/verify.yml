@@ -19,7 +19,7 @@ env:
 jobs:
   linters:
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: ${{ github.workflow }}-${{ github.ref }}-linters
       cancel-in-progress: true
     name: Linters
     runs-on: ubuntu-latest
@@ -50,7 +50,7 @@ jobs:
 
   tests:
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: ${{ github.workflow }}-${{ github.ref }}-tests
       cancel-in-progress: true
     name: Tests
     runs-on: ubuntu-latest
