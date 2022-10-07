@@ -98,6 +98,6 @@ jobs:
       - name: Simplecov Report
         uses: aki77/simplecov-report-action@v1
         with:
-#          failedThreshold: 80
+          failedThreshold: 80
           token: ${{ secrets.GITHUB_TOKEN }}
         if: ${{ github.actor != 'dependabot[bot]' }}
