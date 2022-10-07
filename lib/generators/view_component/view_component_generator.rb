@@ -48,5 +48,4 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
   def initialize_body
     attributes.map { |attr| "@#{attr.name} = #{attr.name}" }.join("\n    ")
   end
-
 end

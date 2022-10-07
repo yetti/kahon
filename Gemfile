@@ -123,3 +123,5 @@ group :test do
   gem "simplecov"
   gem "simplecov-json"
 end
+
+gem "unpoly-rails", "~> 2.6"
