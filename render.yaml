@@ -7,13 +7,13 @@ databases:
 
 services:
   - type: redis
-    plan: free
+    plan: starter
     name: istante-cache
     region: singapore
     ipAllowList: [] # only allow internal connections
     maxmemoryPolicy: allkeys-lfu # optional (defalts to allkeys-lru).  Rails recommends allkeys-lfu as a default.
   - type: web
-    plan: free
+    plan: starter
     name: istante
     region: singapore
     env: ruby
