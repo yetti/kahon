@@ -6,8 +6,8 @@ SimpleCov.formatters = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::JSONFormatter
 ])
 
-SimpleCov.minimum_coverage 80
-SimpleCov.maximum_coverage_drop 5
+# SimpleCov.minimum_coverage 80
+# SimpleCov.maximum_coverage_drop 5
 
 SimpleCov.start "rails" do
   enable_coverage :branch
