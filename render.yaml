@@ -2,7 +2,7 @@ previewsEnabled: true
 previewsExpireAfterDays: 1
 databases:
   - name: istante-db
-    plan: free
+    plan: starter
     region: singapore
     databaseName: istante
     user: istante
