@@ -19,6 +19,7 @@ services:
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
+    pullRequestPreviewsEnabled: true
     envVars:
       - key: DATABASE_URL
         fromDatabase:
