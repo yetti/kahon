@@ -13,7 +13,7 @@ def setup
   system! "bundle check || bundle install"
 
   log "Use Yarn to install NodeJS packages"
-  system! "yarn install --check-files"
+  system! "yarn install --check-files --frozen-lockfile"
 
   log "Dropping & recreating the development database"
   # Note that the very first time this runs, db:reset
