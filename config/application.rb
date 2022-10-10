@@ -34,8 +34,5 @@ module Istante
     config.time_zone = "Canberra"
 
     # config.eager_load_paths << Rails.root.join("extras")
-
-    # load fonts in the assets pipeline
-    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
