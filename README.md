@@ -1,8 +1,8 @@
-# istante
+# kahon
 
 A board game collection manager.
 
-"istante" means "shelf" in Tagalog.
+"kahon" means "box" in Tagalog.
 
 ## Development
 

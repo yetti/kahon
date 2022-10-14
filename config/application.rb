@@ -19,7 +19,7 @@ require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
 
-module Istante
+module Kahon
   class Application < Rails::Application
     config.autoload_paths << Rails.root.join("app", "frontend", "components")
     config.view_component.preview_paths << Rails.root.join("app", "frontend", "components")
