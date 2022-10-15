@@ -7,41 +7,41 @@
 @layer base {
     @font-face {
         font-family: "Lora";
-        src: url("Lora-VariableFont_wght.ttf") format("truetype");
+        src: url("@assets/fonts/Lora-VariableFont_wght.ttf") format("truetype");
     }
     @font-face {
         font-family: "Lora";
-        src: url("Lora-Italic-VariableFont_wght.ttf") format("truetype");
+        src: url("@assets/fonts/Lora-Italic-VariableFont_wght.ttf") format("truetype");
         font-style: italic;
     }
 
     @font-face {
         font-family: "Montserrat";
-        src: url("Montserrat-VariableFont_wght.ttf") format("truetype");
+        src: url("@assets/fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
     }
     @font-face {
         font-family: "Montserrat";
-        src: url("Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
+        src: url("@assets/fonts/Montserrat-Italic-VariableFont_wght.ttf") format("truetype");
         font-style: italic;
     }
 
     @font-face {
         font-family: "Open Sans";
-        src: url("OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
+        src: url("@assets/fonts/OpenSans-VariableFont_wdth,wght.ttf") format("truetype");
     }
     @font-face {
         font-family: "Open Sans";
-        src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
+        src: url("@assets/fonts/OpenSans-Italic-VariableFont_wdth,wght.ttf") format("truetype");
         font-style: italic;
     }
 
     @font-face {
         font-family: "Roboto Mono";
-        src: url("RobotoMono-VariableFont_wght.ttf") format("truetype");
+        src: url("@assets/fonts/RobotoMono-VariableFont_wght.ttf") format("truetype");
     }
     @font-face {
         font-family: "Roboto Mono";
-        src: url("RobotoMono-Italic-VariableFont_wght.ttf") format("truetype");
+        src: url("@assets/fonts/RobotoMono-Italic-VariableFont_wght.ttf") format("truetype");
         font-style: italic;
     }
 
