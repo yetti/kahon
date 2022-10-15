@@ -26,6 +26,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div id="app">
+      <%= render "shared/header" %>
+
+      <div id="main-container" role="document">
+        <main role="main">
+          <%= yield %>
+        </main>
+      </div>
+
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>

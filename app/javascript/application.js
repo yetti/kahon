@@ -6,3 +6,7 @@ import "unpoly/unpoly.css"
 
 import "./pages"
 import "./bootstrap"
+
+import "./glightbox.min"
+import "./tiny-slider"
+import "./main"

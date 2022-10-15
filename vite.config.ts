@@ -17,7 +17,7 @@ export default defineConfig({
     FullReload([
       './app/views/**/*.html.erb',
       './app/helpers/**/*.rb',
-      './app/assets/stylesheets/**/*.css',
+      './app/assets/stylesheets/**/*.{css,scss}',
       './app/javascript/**/*.js',
       './app/frontend/components/**/*.{js,css,rb,html.erb}',
       'config/routes.rb'
