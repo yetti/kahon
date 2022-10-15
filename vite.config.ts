@@ -8,11 +8,19 @@ export default defineConfig({
   resolve: {
     alias: {
       '@assets': resolve(__dirname, 'app/assets'),
+      '@node_modules': resolve(__dirname, 'node_modules'),
     },
   },
   plugins: [
     RubyPlugin(),
     StimulusHMR(),
-    FullReload(["config/routes.rb", "app/views/**/*"], {delay: 200}),
+    FullReload([
+      './app/views/**/*.html.erb',
+      './app/helpers/**/*.rb',
+      './app/assets/stylesheets/**/*.css',
+      './app/javascript/**/*.js',
+      './app/frontend/components/**/*.{js,css,rb,html.erb}',
+      'config/routes.rb'
+    ], {delay: 200}),
   ],
 })

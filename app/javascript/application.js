@@ -5,3 +5,4 @@ import "unpoly/unpoly.js"
 import "unpoly/unpoly.css"
 
 import "./pages"
+import "./bootstrap"
