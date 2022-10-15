@@ -40,9 +40,6 @@ gem "pg", "~> 1.1"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
-gem "jsbundling-rails"
-
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
 
@@ -76,6 +73,9 @@ gem "bootsnap", require: false
 gem "view_component", "~> 2.74"
 gem "view_component-contrib", "~> 0.1.1"
 gem "lookbook", "~> 1.1"
+
+gem "vite_rails", "~> 3.0"
+gem "vite_ruby", "~> 3.2"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -124,5 +124,3 @@ group :test do
   gem "simplecov"
   gem "simplecov-json"
 end
-
-gem "unpoly-rails", "~> 2.6"
