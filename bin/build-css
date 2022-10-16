@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 ./node_modules/sass/sass.js \
+  --watch \
   ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css \
   ./app/assets/stylesheets/bootstrap.scss:./app/assets/builds/bootstrap.css \
   --no-source-map \
