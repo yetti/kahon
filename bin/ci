@@ -12,7 +12,7 @@ echo "[ bin/ci ] Linting source"
 bundle exec rubocop -A
 
 echo "[ bin/ci ] Building JavaScript"
-yarn build
+bin/rake vite:build
 
 echo "[ bin/ci ] Building CSS"
 yarn build:css
