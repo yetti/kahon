@@ -1,30 +1,32 @@
-<h1>Hello, world!</h1>
-<button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">
-  <i class="bi-toggles"></i>
-  Click to toggle popover
-</button>
-<h1 class="display-1">Display 1</h1>
-<h1 class="display-2">Display 2</h1>
-<h1 class="display-3">Display 3</h1>
-<h1 class="display-4">Display 4</h1>
-<h1 class="display-5">Display 5</h1>
-<h1 class="display-6">Display 6</h1>
+<h1>Hello, Bootstrap and Vite!</h1>
+<button class="btn btn-primary">Primary button</button><br />
+<button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button><br />
+<p class="muted">Placeholder text to demonstrate some <a href="#" data-bs-toggle="tooltip" data-bs-title="Default tooltip">inline links</a> with tooltips. This is now just filler, no killer. Content placed here just to mimic the presence of <a href="#" data-bs-toggle="tooltip" data-bs-title="Another tooltip">real text</a>. And all that just to give you an idea of how tooltips would look when used in real-world situations. So hopefully you've now seen how <a href="#" data-bs-toggle="tooltip" data-bs-title="Another one here too">these tooltips on links</a> can work in practice, once you use them on <a href="#" data-bs-toggle="tooltip" data-bs-title="The last tip!">your own</a> site or project.
+</p>
+<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
 
-<p class="text-start">Start aligned text on all viewport sizes.</p>
-<p class="text-center">Center aligned text on all viewport sizes.</p>
-<p class="text-end">End aligned text on all viewport sizes.</p>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <img src="https://placekitten.com/40/40" class="rounded me-2" alt="kitty">
+      <strong class="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, Yetti! This is a toast message.
+    </div>
+  </div>
+</div>
+<script>
+  // trigger toast
+  let toastTrigger = document.getElementById('liveToastBtn')
+  let toastLiveExample = document.getElementById('liveToast')
+  if (toastTrigger) {
+    toastTrigger.addEventListener('click', () => {
+      const toast = new bootstrap.Toast(toastLiveExample)
 
-<p class="text-sm-start">Start aligned text on viewports sized SM (small) or wider.</p>
-<p class="text-md-start">Start aligned text on viewports sized MD (medium) or wider.</p>
-<p class="text-lg-start">Start aligned text on viewports sized LG (large) or wider.</p>
-<p class="text-xl-start">Start aligned text on viewports sized XL (extra-large) or wider.</p>
-<p class="fw-bold">Bold text.</p>
-<p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
-<p class="fw-semibold">Semibold weight text.</p>
-<p class="fw-normal">Normal weight text.</p>
-<p class="fw-light">Light weight text.</p>
-<p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
-<p class="fst-italic">Italic text.</p>
-<p class="fst-normal">Text with normal font style</p>
-<p class="font-monospace">This is in monospace</p>
-<pre>This is also monospace</pre>
+      toast.show()
+    })
+  }
+</script>
