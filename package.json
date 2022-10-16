@@ -2,7 +2,7 @@
   "name": "app",
   "private": "true",
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
+    "build": "node esbuild.config.js",
     "build:css": "./bin/build-css"
   },
   "dependencies": {
@@ -13,5 +13,9 @@
     "bootstrap-icons": "^1.9.1",
     "esbuild": "^0.15.9",
     "sass": "^1.55.0"
+  },
+  "devDependencies": {
+    "chokidar": "^3.5.3",
+    "esbuild-rails": "^1.0.3"
   }
 }
