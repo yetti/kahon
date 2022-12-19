@@ -73,7 +73,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem "view_component", "~> 2.74"
+gem "view_component", "~> 2.79"
 gem "view_component-contrib", "~> 0.1.1"
 gem "lookbook", "~> 1.1"
 
