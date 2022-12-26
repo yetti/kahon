@@ -75,7 +75,7 @@ gem "bootsnap", require: false
 
 gem "view_component", "~> 2.74"
 gem "view_component-contrib", "~> 0.1.1"
-gem "lookbook", "~> 1.1"
+gem "lookbook", "~> 1.4"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
